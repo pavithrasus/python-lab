@@ -1,0 +1,2 @@
+#a matrix with 2*2 integers filled with ones
+np.ones([2, 2], dtype = np.int32)
