@@ -1,0 +1,2 @@
+#an array with random integer values between 1 and 10
+np.random.randint(10, size = 3)
