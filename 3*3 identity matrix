@@ -1,0 +1,2 @@
+# a 3*3 identity matrix
+np.identity(3)
