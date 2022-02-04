@@ -1,0 +1,2 @@
+#a matrix with 3*2 float filled with ones
+np.ones([3, 2] , dtype = np.float)
