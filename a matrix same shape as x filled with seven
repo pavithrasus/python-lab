@@ -1,0 +1,3 @@
+# a matrix with same shape as x but filled with seven
+np.array([[1, 2], [6,2]], dtype = np.int32)
+np.ones_like(x) * 7
