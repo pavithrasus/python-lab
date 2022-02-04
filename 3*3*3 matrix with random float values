@@ -1,0 +1,2 @@
+# 3*3*3 numpy matrix filled with random float values
+np.random.randn(3, 3, 3)
