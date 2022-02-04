@@ -1,0 +1,2 @@
+#an array with values range from 10 to 49
+np.arange(10, 50)
