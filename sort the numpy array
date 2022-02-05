@@ -1,0 +1,4 @@
+# order the given numpy array
+x =[0, 10, -5, 40, -3]
+x.sort()
+x
