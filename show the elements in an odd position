@@ -1,0 +1,3 @@
+#show the elements in an odd position
+x = np.array(['a', 'b', 'c', 'd'])
+x[::2]
