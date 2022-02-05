@@ -1,0 +1,3 @@
+# show all middle values of an array
+x = np.array(['a', 'b', 'c', 'd'])
+x[1:-1]
