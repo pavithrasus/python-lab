@@ -1,0 +1,4 @@
+#set the fifth element equal to 1
+x = np.zeros(10)
+x[4] = 1
+x
