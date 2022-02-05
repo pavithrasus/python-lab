@@ -1,0 +1,5 @@
+#convert python list to Y numpy array
+x = [1,2,3]
+print(x, type(x))
+y = np.array(x)
+print(y, type(y))
