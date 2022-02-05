@@ -1,0 +1,2 @@
+#a 3*3 matrix filled with values ranging from 0 to 8
+np.arange(9).reshape(3,3)
