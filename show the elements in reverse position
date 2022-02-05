@@ -1,0 +1,3 @@
+#show the elements in reverse position
+x = np.array(['a', 'b', 'c', 'd'])
+x[::-1]
