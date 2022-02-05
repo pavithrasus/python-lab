@@ -1,0 +1,3 @@
+#show last element of X numpy array
+x = np.array(['a' , 'b' , 'c' , 'd'])
+x[-1]
