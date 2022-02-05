@@ -1,0 +1,5 @@
+#x numpy array make a copy and store in y
+x = np.array([5, 2, 3], dtype = np.int32)
+print(x , id(x))
+y = np.copy(x)
+print(y, id(y))
