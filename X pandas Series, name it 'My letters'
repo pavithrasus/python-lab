@@ -1,0 +1,4 @@
+# X pandas Series, name it 'My letters'
+x = pd.Series(['a', 'b', 'c'])
+x.name = 'my letters'
+x
