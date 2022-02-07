@@ -1,0 +1,5 @@
+#Order (sort) the given pandas Series
+x = pd.Series([4,2,5,1,3],
+              index=['forth','second','fifth','first','third'])
+x = x.sort_values()
+x
