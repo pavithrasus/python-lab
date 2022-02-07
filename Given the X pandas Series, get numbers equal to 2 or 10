@@ -1,0 +1,4 @@
+#Given the X pandas Series, get numbers equal to 2 or 10
+x = pd.Series([-1,2,0,-4,5,6,0,0,-9,10])
+mask = (x == 2) | (x == 10)
+x[mask]
