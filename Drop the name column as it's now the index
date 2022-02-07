@@ -1,0 +1,3 @@
+#Drop the name column as it's now the index
+marvel_df = marvel_df.drop(['names'] , axis = 1)
+marvel_df
