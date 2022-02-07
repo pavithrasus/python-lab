@@ -1,0 +1,2 @@
+#Given the marvel_df pandas DataFrame, make a mask showing the female characters
+mask = marvel_df['sex'] == 'female'
