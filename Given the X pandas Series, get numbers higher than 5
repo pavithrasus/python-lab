@@ -1,0 +1,4 @@
+#Given the X pandas Series, get numbers higher than 5
+x = pd.Series([-1,2,0,-4,5,6,0,0,-9,10])
+mask = x > 5
+mask
