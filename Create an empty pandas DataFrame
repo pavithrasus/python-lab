@@ -1,0 +1,4 @@
+#Create an empty pandas DataFrame
+pd.DataFrame(data = [None],
+            index = [None],
+            columns = [None])
