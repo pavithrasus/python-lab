@@ -1,0 +1,5 @@
+#Assign index names to the given X pandas Series
+x = pd.Series(['a', 'b', 'c'])
+x_index = ['first', 'second', 'third']
+x.index = x_index
+x
