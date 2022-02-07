@@ -1,0 +1,2 @@
+#show the first and last element of marvel df
+marvel_df.iloc[[0 , -1]]
