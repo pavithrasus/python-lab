@@ -1,0 +1,4 @@
+#Add column names to the marvel_df
+col_names = ['names', 'sex', 'first appearance']
+marvel_df.columns = col_names
+marvel_df
