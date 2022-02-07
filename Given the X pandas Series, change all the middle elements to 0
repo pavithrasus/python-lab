@@ -1,0 +1,5 @@
+#Given the X pandas Series, change all the middle elements to 0
+x = pd.Series([1,2,3,4,5],
+              index=['A','B','C','D','E'])
+x[1:-1] = 0
+x
