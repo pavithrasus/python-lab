@@ -1,0 +1,3 @@
+#Given the X pandas Series, show its first element
+x = pd.Series(['a', 'b', 'c'] , index = ['first', 'second', 'third'])
+x['first']
