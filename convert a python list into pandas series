@@ -1,0 +1,7 @@
+#convert a python list into pandas series
+x = ['a', 'b', 'c']
+print(x , type(x))
+
+
+y = pd.Series(x)
+print(y, type(y))
