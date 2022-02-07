@@ -1,0 +1,2 @@
+#Show basic statistics of marvel_df
+marvel_df.describe()
