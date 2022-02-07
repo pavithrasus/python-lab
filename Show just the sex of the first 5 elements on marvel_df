@@ -1,0 +1,3 @@
+#Show just the sex of the first 5 elements on marvel_df
+
+marvel_df = marvel_df.iloc[5:,].sex.to_frame()
