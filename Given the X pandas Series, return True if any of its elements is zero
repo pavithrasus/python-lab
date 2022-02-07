@@ -1,0 +1,4 @@
+#Given the X pandas Series, return True if any of its elements is zero
+X = pd.Series([-1,2,0,-4,5,6,0,0,-9,10])
+
+X.any()
