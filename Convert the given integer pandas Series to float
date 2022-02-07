@@ -1,0 +1,3 @@
+#Convert the given integer pandas Series to float
+x = pd.Series(['a', 'b', 'c', 'd', 'e'] , index = ['first', 'second', 'third', 'fourth', 'fifth'])
+pd.Series(x , dtype = np.float32)
