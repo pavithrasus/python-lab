@@ -1,0 +1,3 @@
+#Given the marvel_df pandas DataFrame, get the female characters with first_appearance after 1970
+mask = (marvel_df['sex'] == 'female') & (marvel_df['first_appearance'] > 1970)
+marvel_df[mask]
