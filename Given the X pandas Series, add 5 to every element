@@ -1,0 +1,5 @@
+#Given the X pandas Series, add 5 to every element
+x = pd.Series([1,2,3,4,5],
+              index=['A','B','C','D','E'])
+x = x.values + 5
+x
