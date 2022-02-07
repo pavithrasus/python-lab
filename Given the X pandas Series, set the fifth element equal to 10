@@ -1,0 +1,5 @@
+#Given the X pandas Series, set the fifth element equal to 10
+x = pd.Series([1,2,3,4,5],
+              index=['A','B','C','D','E'])
+x[4] = 10
+x
