@@ -1,0 +1,2 @@
+#Given the marvel_df pandas DataFrame, show the mean value of first_appearance
+marvel_df.first_appearance.mean()
