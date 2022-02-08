@@ -1,0 +1,12 @@
+a = np.array([1, 2, 3, np.nan, np.nan, 4])
+a.mean() #nan
+a.sum() #nan
+3 + np.inf #inf
+b = np.array([1, 2, 3, np.inf, np.nan, 4], dtype=np.float) 
+b.sum() #nan
+
+np.isnan(np.array([1, 2, 3, np.nan, np.inf, 4])) 
+np.isfinite(np.array([1, 2, 3, np.nan, np.inf, 4])) #identifies if there is null and infinite values
+a = np.array([1, 2, 3, np.nan, np.nan, 4])
+np.isfinite(a)
+np.isfinite(a).sum() #4
