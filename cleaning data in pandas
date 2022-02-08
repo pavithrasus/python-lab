@@ -1,0 +1,77 @@
+pd.isnull(np.nan) #true
+pd.notnull(np.nan) #false
+
+pd.isnull(pd.Series([1, np.nan, 7])) #0    False
+1     True
+2    False
+dtype: bool
+pd.isnull(pd.DataFrame({
+    'Column A': [1, np.nan, 7],
+    'Column B': [np.nan, 2, 3],
+    'Column C': [np.nan, 2, np.nan]
+}))
+#Pandas Operations with Missing Values
+pd.Series([1, 2, np.nan]).count() #2
+pd.Series([1, 2, np.nan]).sum() #3
+
+#Filtering missing data
+s = pd.Series([1, 2, 3, np.nan, np.nan, 4])
+pd.isnull(s)
+pd.notnull(s)
+pd.notnull(s).sum() #4
+s[pd.notnull(s)] # 0    1.0
+1    2.0
+2    3.0
+5    4.0
+
+s.notnull()
+s.isnull()
+
+#Dropping null values
+s.dropna()
+
+#Drop null values in data frames
+df = pd.DataFrame({
+    'Column A': [1, np.nan, 30, np.nan],
+    'Column B': [2, 8, 31, np.nan],
+    'Column C': [np.nan, 9, 32, 100],
+    'Column D': [5, 8, 34, 110],
+})
+df
+df.shape # (4,4)
+df.info()
+df.isnull()
+df.isnull().sum() #Column A    2
+Column B    1
+Column C    1
+Column D    0
+dtype: int64
+
+df.dropna() #Column A	Column B	Column C	Column D
+2	30.0	31.0	32.0	34
+df.dropna(axis = 1) #Column D
+0	5
+1	8
+2	34
+3	110
+df.dropna(how = 'all') #if all values are null then it will be dropped
+df.dropnna(how = 'any) #default behaviour
+
+df.dropna(thresh = 3) # threshold (a minimum number) of non-null values for the row/column to be kept
+df.dropna(thresh = 3 , axis = 'columns')
+
+#Filling null values
+s.fillna(0) #fill with an arbitary value
+s.fillna(s.mean())
+s.fillna(method = 'ffill') #fill with close values here forward fill
+s.fillna(method = 'bfill') #backward fill
+
+
+#filling null values on data frames
+df.fillna({'Column A': 0, 'Column B': 99, 'Column C': df['Column C'].mean()})
+df.fillna(method = 'ffill' , axis = 0)
+
+#Checking if there are missing values
+s.dropna().count()
+s.count() #if s.dropna().count will be less than s.count()
+
