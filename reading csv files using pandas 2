@@ -1,0 +1,52 @@
+#read file exam_review
+exam_df = pd.read_csv("exam_review.csv" )
+exam_df
+
+#to remove seperater 
+exam_df = pd.read_csv('exam_review.csv',
+                       sep='>')
+exam_df
+
+#to remove the comma 
+exam_df = pd.read_csv('exam_review.csv',
+                      sep='>',
+                      decimal=',')
+exam_df
+
+#to skip rows 
+exam_df = pd.read_csv('exam_review.csv',
+                     sep = '>',
+                     decimal = ',',
+                     skiprows = [1,3])
+exam_df
+
+#Get rid of blank lines
+exam_df = pd.read_csv('exam_review.csv',
+                     sep = '>',
+                     decimal = ',',
+                     skip_blank_lines = False) #skip_blank_lines parameter is set to True so blank lines are skipped while we read files.
+
+If we set this parameter to False, then every blank line will be loaded with NaN values into the DataFrame.
+exam_df
+
+
+#Loading specific columns
+exam_df = pd.read_csv('exam_review.csv',
+                     sep = '>',
+                     usecols = ['first_name', 'last_name', 'age']
+                     )
+exam_df# choose specific columns to be loaded
+
+#Using a Series instead of DataFrame
+
+exam_test_2 = pd.read_csv('exam_review.csv',
+                          sep='>',
+                          usecols=['last_name'],
+                          squeeze=True)
+type(exam_test_2) #when there is only one column for use convert dataframe to series
+
+
+#saving csv file
+exam_df.to_csv()
+exam_df.to_csv('out.csv' , index = None) #specifying a particular path to save
+pd.read_csv('out.csv')
