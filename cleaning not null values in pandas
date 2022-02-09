@@ -1,0 +1,107 @@
+df = pd.DataFrame(
+{
+     'Sex': ['M', 'F', 'F', 'D', '?'],
+    'Age': [29, 30, 24, 290, 25]
+    })
+df
+
+#finding unique values 
+df['Sex'].unique() #array(['M', 'F', 'D', '?'], dtype=object)
+df['Sex'].value_counts() #F    2
+D    1
+?    1
+M    1
+Name: Sex, dtype: int64
+
+#replace values
+df['Sex'].replace({'D' : 'F' , 'N': 'M'})
+df.replace({
+   'Sex' : { 
+            'D' : 'F' ,
+            'N' : 'M'
+           } ,
+    'Age' : {290 : 29}
+}) # you can do replace at dataframe level as well
+
+#keeping conditions
+df[df['Age'] > 100]
+
+
+#Duplicates
+ambassadors = pd.Series([
+    'France',
+    'United Kingdom',
+    'United Kingdom',
+    'Italy',
+    'Germany',
+    'Germany',
+    'Germany',
+], index=[
+    'Gérard Araud',
+    'Kim Darroch',
+    'Peter Westmacott',
+    'Armando Varricchio',
+    'Peter Wittig',
+    'Peter Ammon',
+    'Klaus Scharioth '
+])
+ambassadors
+ambassadors.duplicated() #Gérard Araud          False
+Kim Darroch           False
+Peter Westmacott       True
+Armando Varricchio    False
+Peter Wittig          False
+Peter Ammon            True
+Klaus Scharioth        True
+dtype: bool
+
+ambassadors.duplicated(keep = 'last') #last one will not be duplicated
+ambassadors.duplicated(keep = False) #choose to mark all of them as duplicates with keep=False
+ambassadors.drop_duplicates()
+ambassadors.drop_duplicates(keep = 'last')
+ambassadors.drop_duplicates(keep = False)
+
+
+players = pd.DataFrame({
+    'Name': [
+        'Kobe Bryant',
+        'LeBron James',
+        'Kobe Bryant',
+        'Carmelo Anthony',
+        'Kobe Bryant',
+    ],
+    'Pos': [
+        'SG',
+        'SF',
+        'SG',
+        'SF',
+        'SF'
+    ]
+})
+players
+players.duplicated() #0    False
+1    False
+2     True
+3    False
+4    False
+dtype: bool
+players.duplicated(subset = 'Name') #conceptually, "duplicated" means "all the column values should be duplicates". We can customize this with the subset parameter
+players.duplicated(subset = 'Name' , keep = 'last')
+players.drop_duplicates()
+players.drop_duplicates(subset = 'Name' , keep = 'last')
+
+
+#splitting columns
+df['Data'].str.split('_') #  [1987, M, US , 1]
+1       [1990?, M, UK, 1]
+2        [1992, F, US, 2]
+3    [1970?, M,    IT, 1]
+4      [1985, F, I  T, 2]
+Name: Data, dtype: object
+df.columns = ['Year', 'Sex', 'Country', 'No Children']
+df
+df['Year'].str.contains('\?')
+
+#removing blank spaces
+df['Country'].str.replace(' ' , "")
+df['Country'].str.strip()
