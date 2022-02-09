@@ -1,0 +1,49 @@
+#reading a csv file 
+csv_url = "https://raw.githubusercontent.com/datasets/gdp/master/data/gdp.csv"
+
+pd.read_csv(csv_url).head()
+
+df = pd.read_csv('btc-market-price.csv')
+
+df.head()
+
+# First row behaviour with header parameter
+df = pd.read_csv('btc-market-price.csv',
+                 header=None)
+df.head()
+
+#Missing values with na_values parameter
+df = pd.readcsv('btc-market-price.csv' , header = None , na_values = [' ' , '?' , '_']
+df.head()
+
+#Column names using names parameter
+df = pd.read_csv('btc-market-price.csv' , header = None , na_values = [' ' , '?' , '_'] , names = ['Timestamp' , 'Price])
+df.head()
+
+#Column types using dtype parameter
+df = pd.read_csv('btc-market-price.csv' , 
+                  header = None ,
+                  na_values = [' ' , '?' , '_'] , 
+                  names = ['Timestamp' , 'Price] , 
+                  dtype = {Price : float})
+                  
+#parse Timestamp column to Datetime objects using to_datetime method
+pd.to_datetime(df['Timestamp']).head()
+
+#Date parser using parse_dates parameter
+df = pd.read_csv('btc-market-price.csv' , 
+                  header = None ,
+                  na_values = [' ' , '?' , '_'] , 
+                  names = ['Timestamp' , 'Price] , 
+                  dtype = {Price : float} ,
+                  parse_date = [0])
+                  
+ #Adding index to our data using index_col parameter
+ df = pd.read_csv('btc-market-price.csv' , 
+                  header = None ,
+                  na_values = [' ' , '?' , '_'] , 
+                  names = ['Timestamp' , 'Price] , 
+                  dtype = {Price : float} ,
+                  parse_date = [0]
+                  index_col = [0])
+ 
