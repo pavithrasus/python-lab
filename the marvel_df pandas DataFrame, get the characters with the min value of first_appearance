@@ -1,0 +1,3 @@
+#the marvel_df pandas DataFrame, get the characters with the min value of first_appearance
+mask = marvel_df['first_appearance'] == marvel_df.first_appearance.min()
+marvel_df[mask]
