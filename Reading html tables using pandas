@@ -1,0 +1,99 @@
+!pip install lxml
+#read_html(). This method will read HTML tables from a given URL, a file-like object, or a raw string containing HTML, and return a list of DataFrame objects.
+# Parsing raw HTML strings
+
+html_string = """
+<table>
+    <thead>
+      <tr>
+        <th>Order date</th>
+        <th>Region</th> 
+        <th>Item</th>
+        <th>Units</th>
+        <th>Unit cost</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1/6/2018</td>
+        <td>East</td> 
+        <td>Pencil</td>
+        <td>95</td>
+        <td>1.99</td>
+      </tr>
+      <tr>
+        <td>1/23/2018</td>
+        <td>Central</td> 
+        <td>Binder</td>
+        <td>50</td>
+        <td>19.99</td>
+      </tr>
+      <tr>
+        <td>2/9/2018</td>
+        <td>Central</td> 
+        <td>Pencil</td>
+        <td>36</td>
+        <td>4.99</td>
+      </tr>
+      <tr>
+        <td>3/15/2018</td>
+        <td>West</td> 
+        <td>Pen</td>
+        <td>27</td>
+        <td>19.99</td>
+      </tr>
+    </tbody>
+</table>
+"""
+dfs = pd.read_html(html_string)
+len(dfs) #1
+df = dfs[0]
+df #Previous DataFrame looks quite similar to the raw HTML table, but now we have a DataFrame object
+df.shape
+df.loc[df['Region'] == 'Central']
+df.loc[df['Units'] > 35]
+
+#Defining header
+#Pandas will automatically find the header to use thanks to the tag.
+
+#But in many cases we'll find wrong or incomplete tables that make the read_html method parse the tables in a wrong way without the proper headers.
+
+pd.read_html(html_string)[0]
+pd.read_html(html_string , header = 0)[0]
+
+#Parsing HTML tables from the web
+html_url = "https://www.basketball-reference.com/leagues/NBA_2019_per_game.html"
+nba_tables = pd.read_html(html_url)
+len(nba_tables) #1
+nba = nba_tables[0] 
+nba.head()
+
+#Complex example
+#We can also use the requests module to get HTML code from an URL to parse it into DataFrame objects.
+
+If we look at the given URL we can see multiple tables about The Simpsons TV show.
+
+We want to keep the table with information about each season.
+pip install requests
+import requests
+
+html_url = "https://en.wikipedia.org/wiki/The_Simpsons"
+r = requests.get(html_url)
+wiki_tables = pd.read_html(r.text , header = 0)
+len(wiki_tables) #41
+simpsons = wiki_tables[1]
+simpsons.head()
+
+#Quick clean on the table: remove extra header rows and set Season as index.
+simpsons.drop([0, 1] , inplace = True)
+simpsons.set_index(['Season'] , inplace = True)
+simpsons.head()
+
+#to find the season with minimum episodes
+min_season = simpsons['No. ofepisodes'].min()
+min_season
+simpsons.loc[simpsons['No. ofepisodes'] == min_season]
+
+#save to csv file
+simpsons.to_csv('out.csv')
+pd.read_csv('out.csv', index_col='Season').head()
