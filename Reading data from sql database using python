@@ -1,0 +1,46 @@
+import sqlite3
+conn = sqlite3.connect('chinook.db') # we have to get a connection  object
+cur = conn.cursor() #creates a cursor object to excecute sql queries
+
+cur.execute("select * from employees limit 5 ;") #The Cursor created has a method execute, which will receive SQL parameters to run against the database.
+results = cur.fetchall() #assign to a variable to fetch results using fetchall
+results
+df = pd.DataFrame(results)#convert the result into a dataframe becuase we get it in a tuple format
+df.head()
+
+cur.close()
+conn.close() #it's good practice to close Connection objects and Cursor objects that are open.
+
+
+#option 2 : using read_sql method
+conn = sqlite3.connect('chinook.db')
+df = pd.read_sql("select * from employees;" , conn)
+df
+df = pd.read_sql('select * from employees ;' , conn
+                , index_col = 'employee_id',
+                parse_dates = ['birthdate' , 'hiredate'])
+df
+
+#using read_sql_query method
+conn = sqlite3.connect('chinook.db')
+df = pd.read_sql_query('select * from employees' , conn ,
+                        index_cols = 'employee_id' ,
+                        parse_dates = ['birthdate' , 'hiredate'])
+                        
+df.head()
+
+#Using read_sql_table method
+!pip install sqlalchemy
+from sqlalchemy import create_engine
+engine = create_engine('sqlite:///chinook.db')
+connection = engine.connect()
+df = pd.read_sql_table('employees' , connection = con,
+                        index_col = 'employeeid'
+                        parse_dates = ['birthdate' , 'hiredate'])
+df.head()
+connection.close()
+
+
+
+                        
+                        
