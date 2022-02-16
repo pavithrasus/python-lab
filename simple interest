@@ -1,0 +1,7 @@
+def simple_interest (p, t, r):
+    print('principle is' , p)
+    print('time period is ' , t)
+    print('rate is ', r)
+    
+    si = (p * t * r)/100
+    print('simple intrest is ' , si)
