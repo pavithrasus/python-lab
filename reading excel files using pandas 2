@@ -1,0 +1,15 @@
+#Save to Excel file
+products.head()
+products.to_excel('out.xlsx')
+pd.read_excel('out.xlsx').head()
+products.tp_excel('out.xlsx' , sheet_name = 'Products' , index = None)
+
+#Positioning Data with startrow and startcol
+products.to_excel('out.xlsx' , startrow = 1 , startcol = 2)
+#to write multiple dataframes to excel
+writer = pd.ExcelWriter('out.xlsx')
+writer
+with writer:
+           products.to_excel('out.xlsx' , sheet_name = 'Products')
+           merchants.to_excel(writer, sheet_name='Merchants')
+           
