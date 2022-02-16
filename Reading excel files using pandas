@@ -1,0 +1,26 @@
+pip install openpyxl
+import openpyxl
+df = pd.read_excel('products.xlsx')
+df.head()
+
+#read_excel method
+df = pd.read_excel('products.xlsx' ,
+                  index_col = 'product_id')
+df
+ #to select a specific sheet
+ products = pd.read_excel('products.xlsx' ,
+                          sheet_name = 'Products',
+                           index_col = 'product_id')
+products.head()
+
+#The ExcelFile class
+excel_file = pd.ExcelFile('products.xlsx') #ExcelFile will let us work with sheets easily, and will be faster than the previous read_excel method
+excel_file.sheet_names #['Products', 'Descriptions', 'Merchants']
+
+#specify a sheet using parse method
+products = excel_file.parse('Products')
+products.head()
+
+merchants = excel_file.parse('Merchants',
+                            index_col = 'merchant_id')
+merchants.head() #parse method has all the attributes as that of read_excel method
