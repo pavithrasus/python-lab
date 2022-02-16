@@ -1,0 +1,18 @@
+1.Recursive method : 
+
+
+def factorial(n) :
+def factorial(n):
+    if n == 1 or n == 0 :
+        return 1
+    else:
+        return n * factorial(n-1)
+print ('factorial of' , n , 'is' , factorial(n))
+
+
+2. using inbuilt method
+import math
+def factorial(n):
+    return(math.factorial(n))
+
+print('factorial of', n , 'is' , factorial(n))
