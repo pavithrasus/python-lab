@@ -1,0 +1,15 @@
+arr = array('i' , [])
+n = int(input("enter the limit"))
+for i in range(n):
+    x = int(input("enter the values"))
+    arr.append(x)
+    
+print(arr)
+m = 1
+d = int(input("enter the value of d"))
+for i in range(0 , n):
+    m = ((m * arr[i]) % d)
+    print(m)
+    
+
+print("reminder is" , m)
