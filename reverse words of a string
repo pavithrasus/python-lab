@@ -1,0 +1,7 @@
+string = input("enter the string")
+words = string.split(' ')
+print(words)
+w = words[-1::-1]
+print(w)
+output = ' '.join(w)
+print(output)
