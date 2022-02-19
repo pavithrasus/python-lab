@@ -1,0 +1,8 @@
+string = input("enter the string")
+sub_str = input("enter the sub string")
+def check(string, sub_str):
+    if string.find(sub_str) == -1:
+        print("not found")
+    else:
+        print("found")
+check(string, sub_str)
