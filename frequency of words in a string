@@ -1,0 +1,4 @@
+string = input("enter the string")
+print("the string is" ,string)
+res = {key: string.count(key) for key in string.split(' ')}
+print("the word frequency is" , res)
