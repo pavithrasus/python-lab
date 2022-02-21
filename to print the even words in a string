@@ -1,0 +1,7 @@
+s = input("enter the string")
+print(s)
+words = s.split(' ')
+print(words)
+for w in words:
+    if len(w) % 2 == 0:
+        print(w)
